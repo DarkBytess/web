@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .titulo{
+        background-color: rgb(12, 147, 205);
+        padding: 30px;
+        text-align: center;
+        color: #fff;
+        font-weight: 300;
+    }
+
+    .caixa-3 h1{
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #resultado{
+        text-align: center;
+        font-weight: 200;
+    }
+
+    .caixa-4{
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    button{
+        padding: 20px;
+        width: 200px;
+        background-color: rgb(30, 79, 215);
+        color: #ffffff;
+        border-radius: 20px;
+        border: none;
+        font-size: 20px;
+        animation: pulse 0.5s infinite alternate;
+    }
+ 
+
+    input{
+        padding: 10px;
+        width: 200px;
+    }
+
+    main{
+        width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form{
+        margin: auto;
+        margin-top: 100px;
+        height: 341px;
+    }
+
+    footer{
+        background-color: #000;
+        padding: 10px;
+    }
+</style>
+<body>
+    <header>
+        <h1 class="titulo">CALCULADORA IMC</h1>
+    </header>
+
+    <main>
+        <form id="formulario">
+            <div class="caixa-1">
+                <label for="peso"><strong>Peso (Kg)</strong></label>
+                <br>
+                <input type="number" id="pesoInput">
+            </div>
+    
+            <div class="caixa-2">
+                <label for="altura"><strong>Altura (m)</strong></label>
+                <br>
+                <input type="number" id="alturaInput">
+            </div>
+    
+            <div class="caixa-3">
+                <h1><b>RESULTADO</b></h1>
+                <div id="resultado"></div>
+            </div>
+
+            <div class="caixa-4">
+                <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+            </div>
+
+    
+        </form>
+    </main>
+    <script>
+        function calcularIMC() {
+            // Captura os valores de peso e altura
+            var peso = parseFloat(document.getElementById('pesoInput').value);
+            var altura = parseFloat(document.getElementById('alturaInput').value);
+    
+            // Calcula o IMC
+            var imc = peso / (altura * altura);
+
+            if(imc < 18.5)(
+                document.getElementById('resultado').innerText = "Seu IMC é: " + imc.toFixed(2) + "(BaixoPeso)"
+            )
+
+            else if(imc <= 24.9){
+                document.getElementById('resultado').innerText = "Seu IMC é: " + imc.toFixed(2) + "(Normal)"
+            }
+
+            else if(imc == 25 || imc > 29.9){
+                document.getElementById('resultado').innerText = "Seu IMC é: " + imc.toFixed(2) + "(Pré-obeso)"
+            }
+            
+            else if(imc > 25){
+                document.getElementById('resultado').innerText = "Seu IMC é: " + imc.toFixed(2) + "(SobrePeso)"
+            }
+            
+
+            else{
+                document.getElementById('resultado').innerText = "ALGO DE ERRADO NÃO ESTÁ CERTO!"
+            }
+        }
+    </script>
+
+    <footer>
+        <div>.</div>
+    </footer>
+</body>
+</html>
